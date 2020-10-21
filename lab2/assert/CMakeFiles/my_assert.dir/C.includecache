@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/changho/systemProg/report2/assert/my_assert.c
+stdio.h
+-
+stdlib.h
+-
+my_assert.h
+/home/changho/systemProg/report2/assert/my_assert.h
+
+/home/changho/systemProg/report2/assert/my_assert.h
+

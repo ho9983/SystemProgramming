@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/changho/systemProg/report2/makefile-test/main.c
+stdio.h
+-
+stdlib.h
+-
+lib_fp_operation.h
+/home/changho/systemProg/report2/makefile-test/lib_fp_operation.h
+
+lib/lib_fp_operation.h
+

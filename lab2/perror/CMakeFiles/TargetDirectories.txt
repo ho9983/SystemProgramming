@@ -1,0 +1,4 @@
+/home/changho/systemProg/report2/perror/CMakeFiles/edit_cache.dir
+/home/changho/systemProg/report2/perror/CMakeFiles/rebuild_cache.dir
+/home/changho/systemProg/report2/perror/CMakeFiles/my_perror.dir
+/home/changho/systemProg/report2/perror/CMakeFiles/strerror_use.dir
