@@ -1,2 +1,2 @@
 # SystemProgramming
-System programming to ubuntu linux 16.04 LTS
+System programming to Ubuntu Linux 16.04 LTS
