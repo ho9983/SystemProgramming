@@ -1,0 +1,27 @@
+
+////////////////file_copy////////////////
+
+$ gcc -p file_copy file_copy.c
+$ ./file_copy file_copy.c target.c
+$ ls -al
+
+합계 28
+drwxrwxr-x  2 changho changho 4096 11월 13 15:11 .
+drwxrwxr-x 12 changho changho 4096 11월 13 14:14 ..
+-rwxrwxr-x  1 changho changho 8968 11월 13 14:23 file_copy
+-rw-rw-r--  1 changho changho  704 11월 13 14:59 file_copy.c
+-rw-rw-r--  1 changho changho    0 11월 13 15:11 readme.txt
+-rw-rw-r--  1 changho changho  704 11월 13 15:10 target.c
+
+//////////////// file_check ////////////////
+
+$ ./file_check file_check.c
+File "file_check.c" found...
+$ file_check file_check.c2
+file_check: 명령을 찾을 수 없습니다
+$ ./file_check file_check.c2
+open: No such file or directory
+ 
+
+////////////////
+
