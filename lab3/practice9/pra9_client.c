@@ -4,21 +4,21 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 #define BUFSIZE 32
 #define QNAME "/my_queue"
 #define PRIORITY 1
 
-
 int main() {
   mqd_t qd;
   struct mq_attr q_attr;
-  char send_data[BUFSIZE];
+  char send_data[BUFSIZE]; //define BUFSIZE 32
   int status;
   pid_t pid;
     
-  q_attr.mq_maxmsg = 10; /* max message number in queue */
-  q_attr.mq_msgsize = BUFSIZE; /* max message size */
+  q_attr.mq_maxmsg = 10; 
+  q_attr.mq_msgsize = BUFSIZE; 
 
 
   while(1){
@@ -26,13 +26,13 @@ int main() {
 
       memset(send_data, 0, BUFSIZE);
       printf("Input > ");
-      scanf("%[^\n]", &send_data);
-  
+      scanf("%[^\n]", send_data);
+  	// define QNAME "/my_queue"
       if ((qd = mq_open(QNAME, O_CREAT | O_RDWR, 0600, &q_attr)) == -1) {
 	perror ("mq_open failed");
 	exit (1);
       }
-
+					//define PRIORITY 1
       if (mq_send(qd, send_data, strlen(send_data), PRIORITY) == -1) {
 	perror ("mq_send failed");
 	exit (1);

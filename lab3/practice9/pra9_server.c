@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/wait.h>
+#include <time.h>
+#include <unistd.h>
 
 #define BUFSIZE 32
 #define QNAME "/my_queue"
@@ -11,16 +14,14 @@
 char recv_data[BUFSIZE];
 
 int main() {
-
   mqd_t qd;
   pid_t pid;
   int status;
   struct mq_attr q_attr, old_q_attr; int prio;
 
   char buf[BUFSIZE];
-  q_attr.mq_maxmsg = 10; /* max message number in queue */
-  q_attr.mq_msgsize = BUFSIZE; /* max message size */
-
+  q_attr.mq_maxmsg = 10; 
+  q_attr.mq_msgsize = BUFSIZE; 
 
   while(1){
     if ((pid = fork()) == 0){
@@ -29,8 +30,7 @@ int main() {
 	perror ("mq_open failed");
 	exit (1);
       }
-      q_attr.mq_flags = 0; /* release O_NONBLOCK */
-
+      q_attr.mq_flags = 0; 
       if (mq_setattr(qd, &q_attr, NULL)) {
 	exit (1);
       }
@@ -39,15 +39,13 @@ int main() {
 	perror ("mq_getattr failed");
 	exit (1);
       }
-  
-      if (!(old_q_attr.mq_flags & O_NONBLOCK));
 
       if (mq_receive(qd, recv_data, BUFSIZE, &prio) == -1) {
 	perror ("mq_send failed");
 	exit (1);
       }
 
-      printf ("User Say : %s! \n", recv_data);
+      printf ("Client Say : %s \n", recv_data);
 
       if (mq_close(qd) == -1) {
 	pid = wait(&status);
@@ -61,10 +59,9 @@ int main() {
       }
       exit(0);
     }else if(pid > 0){
-      pid = wait(&status);
-      sleep(3);
-    }
-    else{
+        pid = wait(&status);
+        sleep(3);
+    }else{
       perror("fork failed");
       exit(1);
     }
