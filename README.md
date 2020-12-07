@@ -14,5 +14,5 @@ lab2 : Programing Environments, Debug and Basic Operations(Tools) on Linux
 lab3 : Access/Edit/Processing File, Process Communications on Ubuntu Linux
 
 
-lab4 : 
- - Not uploaded
+lab4 : Thread, Socket & GUI Programming on Ubuntu Linux
+
